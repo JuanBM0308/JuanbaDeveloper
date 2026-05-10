@@ -1,103 +1,41 @@
 <section id="sectionTv">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <div id="containerTv">
-        <section id="countermark">
-            <p>Juanba's TV</p>
-        </section>
-        <section id="screenTv">
-            <div id="panelCli">
-                <div id="titleMenu">
-                    <h5>Basic Menu | Projects by Juan Barbosa</h5>
-                </div>
-                <div id="projectsGrid">
-                    <div class="project-card">
-                        <a rel="preconnect" href="https://github.com/JuanBM0308/DesplegarMiRuta" target="_blank"
-                            class="project-link">
-                            <img src="assets/images/project-miruta.webp" alt="MiRuta Project" class="project-image">
-                            <h6 class="project-title">MiRuta: Bus traceability, mapping, and routing.</h6>
-                            <p class="project-description">
-                                Application for bus tracking, mapping, and routing.
-                            </p>
-                            <div class="containerDevIcons">
-                                <i class="devicon-html5-plain colored"></i>
-                                <i class="devicon-css3-plain colored"></i>
-                                <i class="devicon-javascript-plain colored"></i>
-                                <i class="devicon-java-plain colored"></i>
-                                <i class="devicon-spring-original colored"></i>
-                                <i class="devicon-bootstrap-plain colored"></i>
-                            </div>
-                            <span class="project-link-text">View on GitHub</span>
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <a rel="preconnect" href="https://juanbm0308.github.io/Amigo-Secreto/" target="_blank"
-                            class="project-link">
-                            <img src="assets/images/project-secret-friend.webp" alt="Amigo Secreto Project"
-                                class="project-image">
-                            <h6 class="project-title">Amigo Secreto: Gift exchange draw game.</h6>
-                            <p class="project-description">
-                                A simple game to draw gift exchanges.
-                            </p>
-                            <div class="containerDevIcons">
-                                <i class="devicon-html5-plain colored"></i>
-                                <i class="devicon-css3-plain colored"></i>
-                                <i class="devicon-javascript-plain colored"></i>
-                            </div>
-                            <span class="project-link-text">View Demo</span>
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <a rel="preconnect" href="https://github.com/JuanBM0308/Currency-converter" target="_blank"
-                            class="project-link">
-                            <img src="assets/images/CurrencyConverter.webp" alt="Illustrative image of a currency converter, commonly used to convert dollars to other international currencies, using a currency exchange API."
-                                class="project-image">
-                            <h6 class="project-title">Currency converter</h6>
-                            <p class="project-description">
-                                Currency converter, commonly used to convert dollars to other international currencies, using a real-time currency exchange API, running on the console.
-                            </p>
-                            <div class="containerDevIcons">
-                                <i class="devicon-java-plain-wordmark colored"></i>
-                            </div>
-                            <span class="project-link-text">View on GitHub</span>
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <a rel="preconnect" href="https://github.com/JuanBM0308/Library-simulator" target="_blank"
-                            class="project-link">
-                            <img src="assets/images/BooksLibrary.webp" alt="library simulator image with java"
-                                class="project-image">
-                            <h6 class="project-title">Library simulator</h6>
-                            <p class="project-description">
-                                Console application for simulating an online library where people, books, and loans can be registered. It's a simple representation of a CRUD.
-                            </p>
-                            <div class="containerDevIcons">
-                                <i class="devicon-java-plain-wordmark colored"></i>
-                            </div>
-                            <span class="project-link-text">View on GitHub</span>
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <a rel="preconnect" href="https://github.com/JuanBM0308/TheSalesGalleon" target="_blank"
-                            class="project-link">
-                            <img src="assets/images/online-store-small-business-blog.webp" alt="library simulator image with java"
-                                class="project-image">
-                            <h6 class="project-title">The sales galleon</h6>
-                            <p class="project-description">
-                                Inside is a Java project with Spring. This is a REST API for managing an online marketplace for selling promotional, first-hand, and second-hand products 📦.
-                            </p>
-                            <div class="containerDevIcons">
-                                <i class="devicon-java-plain-wordmark colored"></i>
-                                <i class="devicon-spring-original colored"></i>
-                            </div>
-                            <span class="project-link-text">View on GitHub</span>
-                        </a>
-                    </div>
-                </div>
-                <h6>Coming soon...</h6>
-            </div>
-        </section>
-        <section id="brandTv">
-            <p>SORNY</p>
-        </section>
-    </div>
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <div id="containerTv">
+    <section id="countermark">
+      <p>Juanba's TV</p>
+    </section>
+
+    <section id="screenTv">
+      <div id="panelCli">
+        <div id="titleMenu">
+          <h5>Basic Menu | Projects by Juan Barbosa</h5>
+        </div>
+
+        <div id="projectsGrid">
+          <div class="project-card" *ngFor="let project of projects">
+            <a rel="preconnect" [href]="project.link" target="_blank" class="project-link">
+              <img [src]="project.image" [alt]="project.title" class="project-image">
+              <h6 class="project-title">{{ project.title }}</h6>
+              <p class="project-description">{{ project.description }}</p>
+              
+              <div class="containerDevIcons">
+                <i *ngFor="let tag of project.tags" 
+                   [class]="'devicon-' + tag + '-plain colored'"></i>
+              </div>
+
+              <span class="project-link-text">
+                {{ project.isDemo ? 'View Demo' : 'View on GitHub' }}
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <h6>More coming soon...</h6>
+      </div>
+    </section>
+
+    <section id="brandTv">
+      <p>SORNY</p>
+    </section>
+  </div>
 </section>
