@@ -1,26 +1,31 @@
 import { Injectable } from '@angular/core';
-import { supabase } from '@app/services/supabase.service';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { ContactMessage } from '@app/models/contact-message.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
+  private readonly formspreeUrl = 'https://formspree.io/f/xkoypebj';
+
+  constructor(private http: HttpClient) {}
+
   async saveMessage(messageData: ContactMessage) {
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([messageData]) 
-        .select();
+      const body = {
+        name: messageData.user_name,
+        email: messageData.email,
+        message: messageData.message
+      };
 
-      if (error) {
-        console.error('Supabase insert error:', error);
-        throw error;
-      }
+      const response = await firstValueFrom(this.http.post(this.formspreeUrl, body));
+      
+      console.log('Mensaje enviado con éxito a Formspree. (service.ts)');
+      return response;
 
-      console.log('Mensaje enviado con éxito. (service.ts)');
     } catch (error) {
-      console.error('Error en saveMessage (service.ts): ', error);
+      console.error('Error enviando a Formspree (service.ts): ', error);
       throw error; 
     }
   }
