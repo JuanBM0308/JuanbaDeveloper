@@ -1,150 +1,81 @@
-#containerExperience {
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-#containerTitle {
-    height: auto;
-    margin-bottom: 1rem;
-}
-
+/* Custom Section Styles */
 #titleExperience {
     font-family: var(--fontNormalTitles);
     color: var(--colorTitles);
-    font-size: 3rem;
-    margin: 0;
 }
 
 .normalText {
     font-family: var(--fontNormalText);
-    font-style: italic;
     color: var(--normalText);
-    font-size: 1.3rem;
-    opacity: 0.8;
+    font-size: 1.25rem;
 }
 
-.experienceList {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+/* Experience Cards */
+.experience-item {
+    padding: 2rem 0;
+    transition: all 0.3s ease;
 }
 
-.containerContentXp {
-    display: flex;
-    gap: 2rem;
-    transition: transform 0.3s ease;
-}
-
-.containerContentXp:hover {
-    transform: translateX(10px);
-}
-
-.containerXpImage {
-    flex: 0 0 200px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+.logo-wrapper {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
 }
 
 .imageXp {
-    width: 100%;
-    max-width: 180px;
-    filter: grayscale(20%);
-    transition: filter 0.3s ease;
-}
-
-.containerContentXp:hover .imageXp {
-    filter: grayscale(0%);
-}
-
-.containerXpText {
-    flex: 1;
-}
-
-.xpHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.5rem;
+    max-width: 160px;
+    height: auto;
 }
 
 .jobTitle {
     font-family: var(--fontNormalTitles);
-    color: var(--highlightColor);
-    font-size: 1.8rem;
-    margin: 0;
-}
-
-.xpDate {
-    font-family: var(--fontNormalText);
-    color: var(--normalText);
-    font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .companyName {
     font-family: var(--fontNormalText);
     color: var(--colorTitles);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .descriptionText {
     font-family: var(--fontNormalText);
     color: var(--normalText);
+    line-height: 1.7;
     font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: justify;
 }
 
-.achievementsTitle {
-    margin-top: 1.5rem;
-    font-family: var(--fontNormalTitles);
-    color: var(--colorTitles);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.xpDate {
+    color: var(--highlightColor);
+    font-family: var(--fontNormalText);
 }
 
-.containerAchievements {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1rem;
-}
-
-.achievements {
-    background-color: rgba(var(--highlightColorRGB), 0.1);
+/* Badges / Achievements */
+.badge-custom {
+    background-color: transparent;
     border: 1px solid var(--highlightColor);
     color: var(--highlightColor);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
     font-family: var(--fontNormalText);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     transition: all 0.3s ease;
 }
 
-.achievements:hover {
-    background-color: var(--highlightColor);
-    color: white;
+.badge-custom i {
+    font-size: 1rem;
 }
 
-@media (max-width: 1024px) {
-    .containerContentXp {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .containerXpImage {
-        justify-content: flex-start;
-    }
-    
-    .xpHeader {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+.badge-custom:hover {
+    background-color: var(--highlightColor);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Separator */
+hr {
+    border-top: 1px solid var(--highlightColor);
 }
