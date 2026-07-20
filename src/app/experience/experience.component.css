@@ -7,23 +7,30 @@
 .normalText {
     font-family: var(--fontNormalText);
     color: var(--normalText);
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
 }
 
 /* Experience Cards */
 .experience-item {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .experience-item {
+        padding: 2rem 0;
+    }
 }
 
 .logo-wrapper {
     border: 1px solid rgba(255, 255, 255, 0.1);
-    display: inline-block;
+    max-width: 100%;
 }
 
 .imageXp {
-    max-width: 160px;
-    height: auto;
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
 }
 
 .jobTitle {
@@ -40,8 +47,9 @@
 .descriptionText {
     font-family: var(--fontNormalText);
     color: var(--normalText);
-    line-height: 1.7;
-    font-size: 1.1rem;
+    line-height: 1.6;
+    /* Fuente responsiva para el cuerpo de la descripción */
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
 }
 
 .xpDate {
@@ -54,18 +62,26 @@
     background-color: transparent;
     border: 1px solid var(--highlightColor);
     color: var(--highlightColor);
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-family: var(--fontNormalText);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .badge-custom {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
 }
 
 .badge-custom i {
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .badge-custom:hover {
@@ -78,4 +94,5 @@
 /* Separator */
 hr {
     border-top: 1px solid var(--highlightColor);
+    margin: 1.5rem 0;
 }
